@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:padding="6dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <TextView android:textAppearance="@style/TextViewAppearanceMedium" android:id="@+id/tvDate" android:padding="5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Date:  " />
+    <TextView android:textAppearance="@style/TextViewAppearanceMedium" android:id="@+id/tvTitle" android:padding="5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Title:  " android:layout_below="@+id/tvDate" android:layout_alignLeft="@+id/tvDate" />
+    <TextView android:textAppearance="@style/TextViewAppearanceMedium" android:id="@+id/tvBoV" android:padding="5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Type: " android:layout_below="@+id/tvTitle" android:layout_alignLeft="@+id/tvTitle" />
+    <TextView android:textAppearance="@style/TextViewAppearanceMedium" android:id="@+id/tvUrl" android:padding="5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="URL: " android:layout_below="@+id/tvBoV" android:layout_alignLeft="@+id/tvTitle" />
+    <TextView android:id="@+id/date" android:padding="5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Date" android:layout_toRightOf="@+id/tvDate" />
+    <TextView android:ellipsize="end" android:id="@id/title" android:padding="5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Title" android:layout_toRightOf="@+id/tvTitle" android:layout_below="@+id/tvDate" />
+    <TextView android:id="@+id/bov" android:padding="5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Title" android:layout_toRightOf="@+id/tvBoV" android:layout_below="@+id/tvTitle" />
+    <TextView android:id="@+id/url" android:padding="5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="URL" android:layout_toRightOf="@+id/tvUrl" android:layout_below="@+id/tvBoV" />
+</RelativeLayout>

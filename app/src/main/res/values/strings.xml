@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DataHungry</string>
+    <string name="title_settings_dialog">Permissions Required</string>
+</resources>

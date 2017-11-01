@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "174352553829",
+    "firebase_url": "https://data-hungry-project.firebaseio.com",
+    "project_id": "data-hungry-project",
+    "storage_bucket": "data-hungry-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:174352553829:android:3b2df0d85e48aece",
+        "android_client_info": {
+          "package_name": "com.example.ankurkhandelwal.datahungry"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "174352553829-8jgnibitf5rjh2b7k4bk66jilf7oo0ea.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "174352553829-icmnml8dk15pnfik9hk93ln5tg5ho4ir.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "174352553829-i3uc35hkak3v0oimpg4a7gdj25cdcvcm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ankurkhandelwal.datahungry",
+            "certificate_hash": "83f0a3963014616361c40af1e6389bedb6c3b543"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgn-bnkUBQEEVRzyIMOL2LFRYNW5EV3BA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "174352553829-8jgnibitf5rjh2b7k4bk66jilf7oo0ea.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
