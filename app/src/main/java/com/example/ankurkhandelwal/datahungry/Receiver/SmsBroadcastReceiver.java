@@ -43,9 +43,14 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
             DataHungryApplication.smsArrayListFull.add(0, sms_save);
             Intent notificationIntent = new Intent(context, MainActivity.class);
             notificationIntent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-            Notification noti = new Builder(context).setContentTitle("New SMS from " + address).setContentText(smsBody).setSmallIcon(R.drawable.ic_sms_small_icon).setContentIntent(PendingIntent.getActivity(context, 0, notificationIntent, 0)).setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_sms)).build();
-            noti.flags |= 16;
-//            ((NotificationManager) context.getSystemService(Context.INTEN)).notify(1, noti);
+            Notification noti = new Builder(context).setContentTitle("New SMS from " + address)
+                    .setContentText(smsBody)
+                    .setSmallIcon(R.drawable.ic_sms_small_icon)
+                    .setContentIntent(PendingIntent.getActivity(context, 0, notificationIntent, 0))
+                    .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_sms)).build();
+            noti.flags |= Notification.FLAG_AUTO_CANCEL;
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+            notificationManager.notify(1,noti);
         }
     }
 }

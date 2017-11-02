@@ -37,8 +37,6 @@ public class FragmentContacts extends Fragment {
     View rootView;
     RelativeLayout topView;
 
-
-
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.rootView = inflater.inflate(R.layout.fragment_contact, container, false);
         this.inbox_container = (RecyclerView) this.rootView.findViewById(R.id.inbox_container);
@@ -49,10 +47,14 @@ public class FragmentContacts extends Fragment {
         this.topView = (RelativeLayout) this.rootView.findViewById(R.id.topView);
         this.refresh_layout = (RelativeLayout) this.rootView.findViewById(R.id.refresh_layout);
         this.refresh = (Button) this.rootView.findViewById(R.id.refresh);
-
+        refresh.setOnClickListener(new OnClickListener() {
+            @Override public void onClick(View view) {
+                refresh_view();
+            }
+        });
         this.inbox_container.addItemDecoration(new DividerItemDecoration(this.inbox_container.getContext(), layoutManager.getOrientation()));
         readContacts();
-        return this.rootView;
+        return rootView;
     }
 
     private void readContacts() {

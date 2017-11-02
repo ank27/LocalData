@@ -92,10 +92,8 @@
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_margin="16dp"
-        android:clickable="true"
         android:visibility="gone"
-        android:elevation="16dp"
-        app:backgroundTint="@color/colorPrimary"
+        app:backgroundTint="@color/colorPrimaryDark"
         android:src= "@drawable/ic_keyboard_arrow_right_white_24dp"
         app:layout_anchor="@+id/appBarSend"
         app:layout_anchorGravity="bottom|right|end" />

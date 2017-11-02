@@ -122,7 +122,7 @@ public class ConversationDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView((int) R.layout.activity_conversation);
         this.toolbarConversation = (Toolbar) findViewById(R.id.toolbarConversation);
-        this.toolbarConversation.setNavigationIcon((int) R.drawable.ic_keyboard_arrow_right_white_24dp);
+        this.toolbarConversation.setNavigationIcon((int) R.drawable.ic_arrow_back_white_24dp);
         this.toolbarConversation.setNavigationOnClickListener(new C03141());
         this.activity = this;
         this.progressConversation = (ProgressBar) findViewById(R.id.progressConversation);

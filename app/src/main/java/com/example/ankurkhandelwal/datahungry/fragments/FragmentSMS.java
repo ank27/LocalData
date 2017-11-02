@@ -55,11 +55,25 @@ public class FragmentSMS extends Fragment implements UpdateSMSAdapterListener {
         this.inbox_container.addItemDecoration(new DividerItemDecoration(this.inbox_container.getContext(), layoutManager.getOrientation()));
         readSMS();
         setListener(this);
-//        this.refresh.setOnClickListener(new C03261());
+        this.refresh.setOnClickListener(new OnClickListener() {
+            @Override public void onClick(View view) {
+                readSMS();
+            }
+        });
         this.fab_sms = (FloatingActionButton) rootView.findViewById(R.id.fab_sms);
-//        this.fab_sms.setOnClickListener(new C03272());
+        this.fab_sms.setOnClickListener(new OnClickListener() {
+            @Override public void onClick(View view) {
+                startContactActivity();
+            }
+        });
         return rootView;
     }
+
+    private void startContactActivity() {
+        Intent contactIntent=new Intent(getActivity(),ContactDetailActivity.class);
+        startActivity(contactIntent);
+    }
+
 
     public void setListener(UpdateSMSAdapterListener listener) {
         this.listener = listener;

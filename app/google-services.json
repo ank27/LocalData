@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "174352553829-9g1s9m4rma9vadmrcc8j0oko3mka4oq3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ankurkhandelwal.datahungry",
+            "certificate_hash": "ec83da15f3e3349304f710d49b0ada7d72e51fa1"
+          }
+        },
+        {
+          "client_id": "174352553829-edlug9gms484pseabou7snc13nn989kq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ankurkhandelwal.datahungry",
+            "certificate_hash": "a06d7cb90b3f16f225951fff70e3657f12f74f7f"
+          }
+        },
+        {
           "client_id": "174352553829-8jgnibitf5rjh2b7k4bk66jilf7oo0ea.apps.googleusercontent.com",
           "client_type": 3
         },

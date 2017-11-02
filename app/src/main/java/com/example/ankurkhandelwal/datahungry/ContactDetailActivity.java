@@ -39,14 +39,6 @@ public class ContactDetailActivity extends AppCompatActivity implements ContactF
     public ProgressBar progressSend;
     Toolbar toolbarSendSms;
 
-    class C03101 implements OnClickListener {
-        C03101() {
-        }
-
-        public void onClick(View v) {
-            ContactDetailActivity.this.onBackPressed();
-        }
-    }
 
     class C03112 implements OnClickListener {
         C03112() {
@@ -97,10 +89,14 @@ public class ContactDetailActivity extends AppCompatActivity implements ContactF
         super.onCreate(savedInstanceState);
         setContentView((int) R.layout.activity_contact);
         this.toolbarSendSms = (Toolbar) findViewById(R.id.toolbarSendSms);
-        this.toolbarSendSms.setNavigationIcon((int) R.drawable.ic_keyboard_arrow_right_white_24dp);
+        this.toolbarSendSms.setNavigationIcon((int) R.drawable.ic_arrow_back_white_24dp);
         this.editPerson = (EditText) findViewById(R.id.editPerson);
         this.editPerson.addTextChangedListener(this.filterTextWatcher);
-        this.toolbarSendSms.setNavigationOnClickListener(new C03101());
+        this.toolbarSendSms.setNavigationOnClickListener(new OnClickListener() {
+            @Override public void onClick(View view) {
+                ContactDetailActivity.this.onBackPressed();
+            }
+        });
         this.done_btn = (Button) findViewById(R.id.done_btn);
         this.activity = this;
         this.progressSend = (ProgressBar) findViewById(R.id.progressSend);

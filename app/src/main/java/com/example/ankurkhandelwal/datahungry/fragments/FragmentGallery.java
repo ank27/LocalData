@@ -50,7 +50,11 @@ public class FragmentGallery extends Fragment {
         this.refresh = (Button) rootView.findViewById(R.id.refresh);
         this.inbox_container.addItemDecoration(new DividerItemDecoration(this.inbox_container.getContext(), layoutManager.getOrientation()));
         getGalleryImaages();
-
+        refresh.setOnClickListener(new OnClickListener() {
+            @Override public void onClick(View view) {
+                refresh_view();
+            }
+        });
         return rootView;
     }
 

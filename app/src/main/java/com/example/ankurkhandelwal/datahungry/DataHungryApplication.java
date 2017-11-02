@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.provider.ContactsContract.PhoneLookup;
 import com.example.ankurkhandelwal.datahungry.Models.Contact;
+import com.example.ankurkhandelwal.datahungry.Models.Email;
 import com.example.ankurkhandelwal.datahungry.Models.SMS;
 import java.util.ArrayList;
 
@@ -19,6 +20,7 @@ public class DataHungryApplication extends Application {
     public static Contact selected_contact = null;
     public static ArrayList<SMS> smsArrayList = new ArrayList();
     public static ArrayList<SMS> smsArrayListFull = new ArrayList();
+    public static ArrayList<Email> emailArrayList = new ArrayList<>();
 
     public void onCreate() {
         super.onCreate();

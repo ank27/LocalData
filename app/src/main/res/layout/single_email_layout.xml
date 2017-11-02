@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <RelativeLayout android:id="@+id/top_layout"
+                    android:background="@color/white"
+                    android:padding="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+        <TextView android:id="@+id/email_sender"
+                  android:padding="5dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="8dp"
+                  android:text="abcd@gmail.com"
+                  android:alpha="0.87"
+                  style="@style/TextViewAppearanceMediumBold" />
+        <TextView android:ellipsize="marquee"
+                  android:id="@+id/email_date"
+                  android:padding="5dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="8dp"
+                  android:text="1-10-2017"
+                  android:layout_below="@+id/email_sender"
+                  style="@style/TextViewAppearanceMediumBold" />
+        <TextView android:id="@+id/email_snippet"
+                  android:padding="5dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="8dp"
+                  android:text="sk jsl name"
+                  android:layout_below="@+id/email_date"
+                  android:alpha="0.87"
+                  style="@style/TextViewAppearanceMedium" />
+        <TextView android:ellipsize="marquee"
+                  android:id="@+id/email_body"
+                  android:padding="5dp"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="8dp"
+                  android:text="email body"
+                  android:maxLines="20"
+                  android:layout_below="@+id/email_snippet"
+                  style="@style/TextViewAppearanceMedium" />
+        <TextView android:ellipsize="marquee"
+                  android:id="@+id/email_recipient"
+                  android:padding="5dp"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="8dp"
+                  android:text="to : abc@gmail.com"
+                  android:maxLines="5"
+                  android:layout_below="@+id/email_body"
+                  style="@style/TextViewAppearanceMedium" />
+    </RelativeLayout>
+</RelativeLayout>
