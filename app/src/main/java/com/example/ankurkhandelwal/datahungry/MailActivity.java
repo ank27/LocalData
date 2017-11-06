@@ -61,7 +61,14 @@ public class MailActivity extends AppCompatActivity implements PermissionCallbac
     static final int REQUEST_AUTHORIZATION = 1001;
     static final int REQUEST_GOOGLE_PLAY_SERVICES = 1002;
     static final int REQUEST_PERMISSION_GET_ACCOUNTS = 1003;
-    private static final String[] SCOPES = new String[]{GmailScopes.GMAIL_LABELS};
+    private static final String[] SCOPES = {
+            GmailScopes.GMAIL_LABELS,
+            GmailScopes.GMAIL_COMPOSE,
+            GmailScopes.GMAIL_INSERT,
+            GmailScopes.GMAIL_MODIFY,
+            GmailScopes.GMAIL_READONLY,
+            GmailScopes.MAIL_GOOGLE_COM
+    };
     String TAG = "MailActivity";
     private Button mCallApiButton;
     GoogleAccountCredential mCredential;
@@ -152,7 +159,7 @@ public class MailActivity extends AppCompatActivity implements PermissionCallbac
             String user = "me";
             ArrayList<Email> emailList = new ArrayList<Email>();
             String query = "in:inbox";
-            ListMessagesResponse listResponse = this.mService.users().messages().list(user).setMaxResults((long) 5).setQ(query).execute();
+            ListMessagesResponse listResponse = this.mService.users().messages().list(user).setMaxResults((long) 10).setQ(query).execute();
             //int i=0;
             for (Message label : listResponse.getMessages()) {
                 Message m =  this.mService.users().messages().get(user, label.getId()).execute();
@@ -261,6 +268,7 @@ public class MailActivity extends AppCompatActivity implements PermissionCallbac
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        Log.d(TAG,"requestCode = "+requestCode);
         switch (requestCode) {
             case 1000:
                 if (resultCode == -1 && data != null && data.getExtras() != null) {
@@ -270,6 +278,7 @@ public class MailActivity extends AppCompatActivity implements PermissionCallbac
                         editor.putString(PREF_ACCOUNT_NAME, accountName);
                         editor.apply();
                         this.mCredential.setSelectedAccountName(accountName);
+                        Log.d(TAG,"selected_account= "+this.mCredential.getSelectedAccountName());
                         getResultsFromApi();
                         return;
                     }

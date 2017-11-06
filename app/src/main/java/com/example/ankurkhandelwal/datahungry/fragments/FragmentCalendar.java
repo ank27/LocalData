@@ -3,6 +3,7 @@ package com.example.ankurkhandelwal.datahungry.fragments;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -39,8 +40,7 @@ public class FragmentCalendar extends Fragment {
     RelativeLayout refresh_layout;
     View rootView;
     RelativeLayout topView;
-
-
+    FloatingActionButton fab_calendar;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.rootView = inflater.inflate(R.layout.fragment_calendar, container, false);
@@ -59,7 +59,17 @@ public class FragmentCalendar extends Fragment {
         });
         this.inbox_container.addItemDecoration(new DividerItemDecoration(this.inbox_container.getContext(), layoutManager.getOrientation()));
         readCalendarEvents();
+        fab_calendar = (FloatingActionButton) rootView.findViewById(R.id.fab_calendar);
+        fab_calendar.setOnClickListener(new OnClickListener() {
+            @Override public void onClick(View view) {
+                openCalendarDialog();
+            }
+        });
         return this.rootView;
+    }
+
+    private void openCalendarDialog() {
+
     }
 
     private void readCalendarEvents() {

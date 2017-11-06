@@ -39,37 +39,6 @@ public class ContactDetailActivity extends AppCompatActivity implements ContactF
     public ProgressBar progressSend;
     Toolbar toolbarSendSms;
 
-
-    class C03112 implements OnClickListener {
-        C03112() {
-        }
-
-        public void onClick(View v) {
-            if (ContactDetailActivity.this.editPerson.getText().toString().equals("")) {
-                Toast.makeText(ContactDetailActivity.this.getApplicationContext(), "Please select a contact person", 0).show();
-                return;
-            }
-            Intent conversationIntent = new Intent(ContactDetailActivity.this, ConversationDetailActivity.class);
-            if (DataHungryApplication.selected_contact != null) {
-                conversationIntent.putExtra("name", DataHungryApplication.selected_contact.name);
-                conversationIntent.putExtra("mobile", DataHungryApplication.selected_contact.mobile);
-            } else {
-                conversationIntent.putExtra("name", ContactDetailActivity.this.editPerson.getText().toString());
-                conversationIntent.putExtra("mobile", ContactDetailActivity.this.editPerson.getText().toString());
-            }
-            ContactDetailActivity.this.startActivity(conversationIntent);
-        }
-    }
-
-    class C03123 implements OnClickListener {
-        C03123() {
-        }
-
-        public void onClick(View v) {
-            ContactDetailActivity.this.fab_send_sms.performClick();
-        }
-    }
-
     class C03134 implements TextWatcher {
         C03134() {
         }
@@ -103,8 +72,28 @@ public class ContactDetailActivity extends AppCompatActivity implements ContactF
         this.contactListLayout = (RelativeLayout) findViewById(R.id.contactListLayout);
         this.no_item_layout = (RelativeLayout) findViewById(R.id.no_item_layout);
         this.fab_send_sms = (FloatingActionButton) findViewById(R.id.fab_send_sms);
-        this.fab_send_sms.setOnClickListener(new C03112());
-        this.done_btn.setOnClickListener(new C03123());
+        this.fab_send_sms.setOnClickListener(new OnClickListener() {
+            @Override public void onClick(View view) {
+                if (ContactDetailActivity.this.editPerson.getText().toString().equals("")) {
+                    Toast.makeText(ContactDetailActivity.this.getApplicationContext(), "Please select a contact person", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                Intent conversationIntent = new Intent(ContactDetailActivity.this, ConversationDetailActivity.class);
+                if (DataHungryApplication.selected_contact != null) {
+                    conversationIntent.putExtra("name", DataHungryApplication.selected_contact.name);
+                    conversationIntent.putExtra("mobile", DataHungryApplication.selected_contact.mobile);
+                } else {
+                    conversationIntent.putExtra("name", ContactDetailActivity.this.editPerson.getText().toString());
+                    conversationIntent.putExtra("mobile", ContactDetailActivity.this.editPerson.getText().toString());
+                }
+                ContactDetailActivity.this.startActivity(conversationIntent);
+            }
+        });
+        this.done_btn.setOnClickListener(new OnClickListener() {
+            @Override public void onClick(View view) {
+                ContactDetailActivity.this.fab_send_sms.performClick();
+            }
+        });
         if (VERSION.SDK_INT < 21) {
             LayoutParams p = (LayoutParams) this.fab_send_sms.getLayoutParams();
             p.setMargins(0, 0, 0, 0);

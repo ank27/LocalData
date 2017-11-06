@@ -1,5 +1,9 @@
 package com.example.ankurkhandelwal.datahungry;
 
+import android.annotation.TargetApi;
+import android.app.Fragment;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.TabLayout.OnTabSelectedListener;
@@ -27,21 +31,6 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private ViewPager viewPager;
 
-    class C06151 implements OnTabSelectedListener {
-        C06151() {
-        }
-
-        public void onTabSelected(Tab tab) {
-            MainActivity.this.viewPager.setCurrentItem(tab.getPosition());
-        }
-
-        public void onTabUnselected(Tab tab) {
-        }
-
-        public void onTabReselected(Tab tab) {
-        }
-    }
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView((int) R.layout.activity_main);
@@ -54,7 +43,19 @@ public class MainActivity extends AppCompatActivity {
         this.viewPager.setCurrentItem(0);
         checkPermissions();
         this.receiver = new SmsBroadcastReceiver();
-        this.tabLayout.addOnTabSelectedListener(new C06151());
+        this.tabLayout.addOnTabSelectedListener(new OnTabSelectedListener() {
+            @Override public void onTabSelected(Tab tab) {
+                MainActivity.this.viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override public void onTabUnselected(Tab tab) {
+
+            }
+
+            @Override public void onTabReselected(Tab tab) {
+
+            }
+        });
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -84,6 +85,13 @@ public class MainActivity extends AppCompatActivity {
             Log.d("Permission", "Already granted for Read Phone Contact");
         } else {
             this.marshMallowPermission.requestPermissionForReadContact();
+        }
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d(TAG,"onActivityResultCalled with = "+requestCode);
+        for(android.support.v4.app.Fragment fragment : getSupportFragmentManager().getFragments()) {
+            fragment.onActivityResult(requestCode, resultCode, data);
         }
     }
 
